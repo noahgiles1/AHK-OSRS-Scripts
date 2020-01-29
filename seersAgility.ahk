@@ -6,12 +6,6 @@ If WinExist("OpenOSRS")
 Global laps := 0
 Global j := 0
 
-F1::
-findObstacle1()
-return
-
-F12::reload
-
 
 
 agility()
@@ -152,6 +146,7 @@ findObstacle1()
         Click
         Sleep sleepwait
         findObstacle2()
+      }
       if (ErrorLevel = 1) {
         Random x, 147, 158
         Random y, 167, 195
@@ -166,11 +161,10 @@ findObstacle1()
     }
   }
 }
-}
 
 findObstacle2()
 {
-  Random, sleepBank, 1200, 1400
+  Random, sleepBank, 1800, 2000
   Random, sleepClick, 130, 170
   Random, sleepWait, 9000, 9200
   Random, s, 300, 600
