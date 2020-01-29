@@ -1,7 +1,7 @@
 # AHK-OSRS-Scripts
 
 Download noah_X.XX.exe program to use scripts. <br/>
-Script help and images currently not updated.
+Script help and images currently not all updated.
 <br/>
 Always monitor scripts as lag and other factors can break them. <br/>
 ### F12 to force stop running scripts. ###
