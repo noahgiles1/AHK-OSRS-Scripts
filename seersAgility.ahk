@@ -162,7 +162,7 @@ findObstacle1()
 
 findObstacle2()
 {
-  Random, sleepBank, 1800, 2000
+  Random, sleepBank, 2300, 2600
   Random, sleepClick, 130, 170
   Random, sleepWait, 9000, 9200
   Random, s, 300, 600
