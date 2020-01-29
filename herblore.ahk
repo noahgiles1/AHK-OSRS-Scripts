@@ -170,18 +170,18 @@ Random, sleepBank, 500, 1000
 Random, sleepClick, 130, 170
 Random, sleepWait, 8450, 8650
 Random, s, 400, 700
-	;PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
-	;PixelSearch, x2, y2, 0, 365, 520, 0, 0x00FAFF, 10, RGB, Fast
-	;if ErrorLevel = 2
-	;	msgbox, "There was some sort of problem"
-	;if ErrorLevel = 1
-	;	msgbox, "The colour wasn't found"
-	;if ErrorLevel = 0
-		Random x, 186, 348
-		Random y, 168, 271
-	MouseGetPos, x0, y0
-	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
-	sleep sleepWait
-	Click
-	sleep sleepBank
+	PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
+	if ErrorLevel = 1
+    Send {F12}
+		msgbox, "The colour wasn't found"
+	if (ErrorLevel = 0) {
+    Random x, x1-200, x1
+		Random y, y1-65, y1+5
+  	MouseGetPos, x0, y0
+  	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+  	sleep sleepWait
+  	Click
+  	sleep sleepBank
+  }
+
 }

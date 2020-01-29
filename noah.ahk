@@ -97,11 +97,11 @@ else {
 return
 
 HerbInfo:
-	msgbox, "Set up bank as image states, withdraw quantity to 14, mark tile as image states, ensure correct colour."
+	msgbox, "Set up bank as image shows, withdraw quantity to 14, mark tile as image shows, ensure correct colour and face camera exactly the same as image shows."
 return
 
 HerbImg:
-	Run, https://imgur.com/a/WCaGuih
+	Run, https://imgur.com/a/c7XDY4F
 return
 
 
