@@ -127,8 +127,6 @@ findObstacle1()
     if (ErrorLevel = 0) {
       PixelSearch, x1, y1, 0, 0, 520, 365, 0xC46AFF, 10, RGB, Fast
       if (ErrorLevel = 0) {
-        msgbox, %x1%
-        msgbox, %y1%
         Random x, 237, 245
         Random y, 177, 184
         MouseGetPos, x0, y0
