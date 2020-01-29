@@ -119,7 +119,7 @@ Agility:
 return
 
 AgilityInfo:
-	msgbox, Set up exactly as images are, start script next to first obstacle
+	msgbox, Set up exactly as images are, start script next to first obstacle. No support for teleporting. Untested fall down recovery. 
 Return
 
 AgilityImg:
