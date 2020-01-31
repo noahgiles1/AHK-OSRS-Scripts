@@ -171,9 +171,9 @@ Random, sleepClick, 130, 170
 Random, sleepWait, 8450, 8650
 Random, s, 400, 700
 	PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
-	if ErrorLevel = 1
-    Send {F12}
+	if ( ErrorLevel = 1) {
 		msgbox, "The colour wasn't found"
+    }
 	if (ErrorLevel = 0) {
     Random x, x1-200, x1
 		Random y, y1-65, y1+5
