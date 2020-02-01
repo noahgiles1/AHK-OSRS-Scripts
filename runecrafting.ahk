@@ -357,8 +357,8 @@ fourthMove()
   Random, sleepClick, 130, 170
   Random, sleepMove, 6350, 6500
   Random, s, 400, 700
-  Random, x, 675, 690
-	Random, y, 164, 177
+  Random, x, 675, 688
+	Random, y, 164, 175
 	MouseGetPos, x0, y0
 	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
@@ -374,8 +374,8 @@ thirdMove()
   Random, sleepClick, 130, 170
   Random, sleepMove, 6250, 6500
   Random, s, 200, 400
-  Random, x, 665, 682
-	Random, y, 174, 187
+  Random, x, 665, 680
+	Random, y, 174, 185
 	MouseGetPos, x0, y0
 	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
