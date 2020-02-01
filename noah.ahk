@@ -16,10 +16,14 @@ Gui, Add, Button, x20 y270 w150 h75 gHerblore, Unf Potions
 Gui, Add, Button, x185 y285 w20 h20 gHerbInfo, ?
 Gui, Add, Button, x185 y310 w20 h20 gHerbImg, i
 
-Gui, Font, s9
 Gui, Add, Button, x20 y370 w150 h75 gAgility, Seers Agility
 Gui, Add, Button, x185 y385 w20 h20 gAgilityInfo, ?
 Gui, Add, Button, x185 y410 w20 h20 gAgilityImg, i
+
+Gui, Add, Button, x260 y70 w150 h75 gFletch, Stringing bows
+Gui, Add, Button, x425 y85 w20 h20 gFletchhInfo, ?
+Gui, Add, Button, x425 y110 w20 h20 gFletchImg, i
+
 
 Gui, Add, Button, x175 y470 w150 h35 gClose, Exit
 
@@ -31,6 +35,7 @@ return
 #Include herblore.ahk
 #Include mousemove.ahk
 #Include seersAgility.ahk
+#Include stringBows.ahk
 
 
 ;Labels
@@ -125,6 +130,29 @@ Return
 AgilityImg:
  run, https://imgur.com/a/O76JpEU
 return
+
+
+Fletch:
+If WinExist("OpenOSRS") {
+	WinActivate, OpenOSRS
+	fletch()
+}
+else if WinExist("RuneLite") {
+	WinActivate,  RuneLite
+	fletch()
+}
+else {
+	msgbox, RuneLite or OpenOSRS are not open.
+	sleep, 500
+	exitapp
+}
+Return
+
+FletchhInfo:
+Return
+
+FletchImg:
+Return
 
 Close:
 	exitapp
