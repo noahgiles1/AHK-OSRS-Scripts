@@ -265,7 +265,7 @@ EwearNeckalce()
 Ewalk4(){
   Random, sleepBank, 500, 1000
   Random, sleepClick, 130, 170
-  Random, sleepMove, 8500, 8750
+  Random, sleepMove, 8750, 8900
   Random, s, 400, 700
   PixelSearch, x1, y1, 340, 0, 520, 365, 0xFF00E7, 10, RGB, Fast
   PixelSearch, x2, y2, 340, 365, 520, 0, 0xFF00E7, 10, RGB, Fast
@@ -336,11 +336,10 @@ EfindAltar1(){
   Random, sleepClick, 130, 170
   Random, sleepMove, 6500, 6750
   Random, s, 400, 700
-  PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
   PixelSearch, x2, y2, 0, 365, 520, 0, 0x00FAFF, 10, RGB, Fast
   MouseGetPos, x0, y0
-  Random x, x1, x2
-  Random y, y1, y2-10
+  Random x, x2, x2+10
+  Random y, y2-5, y2-25
   RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   sleep sleepClick
   click
@@ -375,7 +374,7 @@ EfindAltar2(){
 
 
 Eteleport(){
-  Random, sleepBank, 3600, 3800
+  Random, sleepBank, 4000, 4200
   Random, sleepClick, 130, 170
   Random, sleepMove, 6500, 6750
   Random, s, 400, 700
