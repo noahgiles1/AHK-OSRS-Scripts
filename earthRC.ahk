@@ -9,8 +9,8 @@ earthRC() {
       Ewalk2()
       Ebank()
       Eemptyinv()
-      Random i, 1, 3
-      if (i = 1 or i = 2) {
+      Random i, 1, 6
+      if (i != 6) {
         EwithdrawStam()
         EcloseBank()
         EdrinkStam()
@@ -26,6 +26,7 @@ earthRC() {
       Ewalk7()
       EfindAltar1()
       EfindAltar2()
+
       }
     Eteleport()
     Ewalk1()
