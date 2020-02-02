@@ -1,5 +1,6 @@
 #SingleInstance, Force
 
+
 earthRC() {
   loop, {
     loop, 16 {
@@ -11,13 +12,11 @@ earthRC() {
       Random i, 1, 3
       if (i = 1 or i = 2) {
         EwithdrawStam()
-      }
-      EcloseBank()
-      if (i = 1 or i = 2) {
+        EcloseBank()
         EdrinkStam()
+        EfindBank2()
+        EemptyInv()
       }
-      EfindBank2()
-      EemptyInv()
       EwithdrawTalisman()
       EwithdrawEss()
       EcloseBank()
@@ -92,15 +91,30 @@ Ebank() {
   Random, sleepClick, 130, 170
   Random, sleepMove, 6000, 6300
   Random, s, 400, 650
-  PixelSearch, x1, y1, 260, 220, 520, 365, 0x00FAFF, 10, RGB, Fast
-  PixelSearch, x2, y2, 260, 365, 520, 220, 0xFF00E7, 10, RGB, Fast
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
   MouseGetPos, x0, y0
-  Random x, x1-20, x1+10
-  Random y, y1-5, y1+8
+  Random x, x1-2, x1-10
+  Random y, y1+2, y1+9
   RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   sleep sleepClick
   Click
   sleep sleepMove
+}
+
+EfindBank2()
+{
+  Random, sleepBank, 1300, 1500
+  Random, sleepClick, 130, 170
+  Random, sleepMove, 6000, 6300
+  Random, s, 400, 650
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
+  MouseGetPos, x0, y0
+  Random x, x1-2, x1-10
+  Random y, y1+2, y1+9
+  RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+  sleep sleepClick
+  Click
+  sleep sleepbank
 }
 
 
@@ -244,32 +258,20 @@ EwearNeckalce()
 }
 
 
-EfindBank2()
-{
-  Random, sleepBank, 1300, 1500
-  Random, sleepClick, 130, 170
-  Random, sleepMove, 6000, 6300
-  Random, s, 400, 650
-  PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
-  PixelSearch, x2, y2, 0, 365, 520, 0, 0xFF00E7, 10, RGB, Fast
-  MouseGetPos, x0, y0
-  Random x, x1-20, x1+20
-  Random y, y1+2, y1+8
-  RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
-  sleep sleepClick
-  Click
-  sleep sleepbank
-}
+
 
 
 
 Ewalk4(){
   Random, sleepBank, 500, 1000
   Random, sleepClick, 130, 170
-  Random, sleepMove, 6250, 6500
+  Random, sleepMove, 8500, 8750
   Random, s, 400, 700
-  Random, x, 695, 715
-  Random, y, 72, 90
+  PixelSearch, x1, y1, 340, 0, 520, 365, 0xFF00E7, 10, RGB, Fast
+  PixelSearch, x2, y2, 340, 365, 520, 0, 0xFF00E7, 10, RGB, Fast
+  MouseGetPos, x0, y0
+  Random x, x1, x2
+  Random y, y1, y2
   MouseGetPos, x0, y0
   RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
@@ -280,10 +282,13 @@ Ewalk4(){
 Ewalk5(){
   Random, sleepBank, 500, 1000
   Random, sleepClick, 130, 170
-  Random, sleepMove, 6250, 6500
+  Random, sleepMove, 7150, 7400
   Random, s, 400, 700
-  Random, x, 695, 715
-  Random, y, 72, 90
+  PixelSearch, x1, y1, 340, 0, 520, 365, 0xFF00E7, 10, RGB, Fast
+  PixelSearch, x2, y2, 340, 365, 520, 0, 0xFF00E7, 10, RGB, Fast
+  MouseGetPos, x0, y0
+  Random x, x1, x2
+  Random y, y1, y2
   MouseGetPos, x0, y0
   RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
@@ -297,8 +302,8 @@ Ewalk6() {
   Random, sleepClick, 130, 170
   Random, sleepMove, 6500, 6750
   Random, s, 400, 700
-  PixelSearch, x1, y1, 0, 0, 520, 365, 0xFF00E7, 10, RGB, Fast
-  PixelSearch, x2, y2, 0, 365, 520, 0, 0xFF00E7, 10, RGB, Fast
+  PixelSearch, x1, y1, 0, 0, 520, 80, 0xFF00E7, 10, RGB, Fast
+  PixelSearch, x2, y2, 0, 80, 520, 0, 0xFF00E7, 10, RGB, Fast
   MouseGetPos, x0, y0
   Random x, x1, x2
   Random y, y1, y2
@@ -314,9 +319,11 @@ Ewalk7(){
   Random, sleepClick, 130, 170
   Random, sleepMove, 6250, 6500
   Random, s, 400, 700
-  Random, x, 660, 680
-  Random, y, 45, 65
+  PixelSearch, x1, y1, 0, 0, 520, 140, 0xFF00E7, 10, RGB, Fast
+  PixelSearch, x2, y2, 0, 140, 520, 0, 0xFF00E7, 10, RGB, Fast
   MouseGetPos, x0, y0
+  Random x, x1, x2
+  Random y, y1, y2
   RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
   Click
@@ -338,7 +345,7 @@ EfindAltar1(){
   sleep sleepClick
   click
   sleep sleepMove
-  PixelSearch, x1, y1, 0, 0, 520, 110, 0xFF00E7, 10, RGB, Fast
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0xFF00E7, 10, RGB, Fast
   if (ErrorLevel = 0) {
     EfindAltar1()
   }
