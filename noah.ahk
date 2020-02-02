@@ -24,6 +24,10 @@ Gui, Add, Button, x260 y70 w150 h75 gFletch, Stringing bows
 Gui, Add, Button, x425 y85 w20 h20 gFletchhInfo, ?
 Gui, Add, Button, x425 y110 w20 h20 gFletchImg, i
 
+Gui, Add, Button, x260 y170 w150 h75 gEarth, Mud RuneCrafting
+Gui, Add, Button, x425 y185 w20 h20 gEarthInfo, ?
+Gui, Add, Button, x425 y210 w20 h20 gEarthImg, i
+
 
 Gui, Add, Button, x175 y470 w150 h35 gClose, Exit
 
@@ -36,6 +40,7 @@ return
 #Include mousemove.ahk
 #Include seersAgility.ahk
 #Include stringBows.ahk
+#Include earthRC.ahk
 
 
 ;Labels
@@ -153,6 +158,29 @@ Return
 
 FletchImg:
 Return
+
+
+Earth:
+If WinExist("OpenOSRS") {
+	WinActivate, OpenOSRS
+	earthRC()
+}
+else if WinExist("RuneLite") {
+	WinActivate,  RuneLite
+	earthRC()
+}
+else {
+	msgbox, RuneLite or OpenOSRS are not open.
+	sleep, 500
+	exitapp
+}
+Return
+
+EarthInfo:
+return
+
+EarthImg:
+return
 
 Close:
 	exitapp
