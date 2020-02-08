@@ -1,55 +1,70 @@
 #SingleInstance, Force
 
 
-earthRC() {
-  loop, {
-    loop, 16 {
-      Eteleport()
-      Ewalk1()
-      Ewalk2()
-      Ebank()
-      Eemptyinv()
-      Random i, 1, 6
-      if (i != 6) {
-        EwithdrawStam()
-        EcloseBank()
-        EdrinkStam()
-        EfindBank2()
-        EemptyInv()
-      }
-      EwithdrawTalisman()
-      EwithdrawEss()
-      EcloseBank()
-      Ewalk4()
-      Ewalk5()
-      Ewalk6()
-      Ewalk7()
-      EfindAltar1()
-      EfindAltar2()
-
-      }
-    Eteleport()
-    Ewalk1()
-    Ewalk2()
-    Ebank()
-    Eemptyinv()
+normalrun(){
+  Eteleport()
+  Ewalk1()
+  Ewalk2()
+  Ebank()
+  Eemptyinv()
+  Random i, 1, 10
+  if (i != 6) {
     EwithdrawStam()
-    EwithdrawNecklace()
     EcloseBank()
     EdrinkStam()
-    EwearNeckalce()
     EfindBank2()
     EemptyInv()
-    EwithdrawTalisman()
-    EwithdrawEss()
-    EcloseBank()
-    Ewalk4()
-    Ewalk5()
-    Ewalk6()
-    Ewalk7()
-    EfindAltar1()
-    EfindAltar2()
   }
+  EwithdrawTalisman()
+  EwithdrawEss()
+  EcloseBank()
+  Ewalk4()
+  Ewalk5()
+  Ewalk6()
+  Ewalk7()
+  EfindAltar1()
+  EfindAltar2()
+}
+
+necklaceRun(){
+  Eteleport()
+  Ewalk1()
+  Ewalk2()
+  Ebank()
+  Eemptyinv()
+  EwithdrawStam()
+  EwithdrawNecklace()
+  EcloseBank()
+  EdrinkStam()
+  EwearNeckalce()
+  EfindBank2()
+  EemptyInv()
+  EwithdrawTalisman()
+  EwithdrawEss()
+  EcloseBank()
+  Ewalk4()
+  Ewalk5()
+  Ewalk6()
+  Ewalk7()
+  EfindAltar1()
+  EfindAltar2()
+}
+
+earthRC() {
+  inputbox, runs, Runs, How many charges on amulet do you have?
+  count := 0
+  loop, %runs% {
+    normalrun()
+    }
+    necklaceRun()
+  loop, {
+    loop, 16 {
+      normalrun()
+      }
+      necklaceRun()
+  }
+
+
 }
 
 Ewalk1() {
@@ -386,4 +401,9 @@ Eteleport(){
   sleep sleepClick
   click
   sleep sleepBank
+
+  PixelSearch, x9, y9, 574, 464, 589, 480, 0x817878, 5, RGB, Fast
+  if (ErrorLevel = 0) {
+    normalrun()
+  }
 }

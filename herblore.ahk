@@ -5,9 +5,12 @@ herblore()
 {
 inputbox, pots, Potions, How many potions do you want to create?
 value := pots / 14
-j := Floor(value)
+j := Floor(value) + 1
+Send {Esc}
+Random, f, 500, 1000
+Sleep f
+HfindBank1()
   loop %j%{
-    HfindBank()
     HemptyInv()
     Hwithdraw1()
     Hwithdraw2()
@@ -22,6 +25,7 @@ j := Floor(value)
       vial2()
     }
     herb()
+    HfindBank()
   }
 }
 
@@ -171,6 +175,27 @@ HfindBank()
 Random, sleepBank, 500, 1000
 Random, sleepClick, 130, 170
 Random, sleepWait, 8450, 8650
+Random, s, 400, 700
+	PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
+	if ( ErrorLevel = 1) {
+		msgbox, "The colour wasn't found"
+    }
+	if (ErrorLevel = 0) {
+    Random x, x1-200, x1
+		Random y, y1-65, y1+5
+  	MouseGetPos, x0, y0
+  	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+  	sleep sleepWait
+  	Click
+  	sleep sleepBank
+  }
+
+}
+HfindBank1()
+{
+Random, sleepBank, 500, 1000
+Random, sleepClick, 130, 170
+Random, sleepWait, 1000, 1500
 Random, s, 400, 700
 	PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 10, RGB, Fast
 	if ( ErrorLevel = 1) {
