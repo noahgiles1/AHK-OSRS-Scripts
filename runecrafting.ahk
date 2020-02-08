@@ -272,10 +272,9 @@ clickAltar1()
   Random, s, 400, 700
   	PixelSearch, x1, y1, 0, 0, 520, 365, 0xF1FF00, 10, RGB, Fast
   	PixelSearch, x2, y2, 0, 365, 520, 0, 0xF1FF00, 10, RGB, Fast
-  	if ErrorLevel = 2
-  		msgbox, "There was some sort of problem"
-  	if ErrorLevel = 1
-  		msgbox, "The colour wasn't found"
+  	if (ErrorLevel = 1) {
+      sleep 500
+    }
   	if ErrorLevel = 0
   		Random x, x2, x1
   		Random y, y1, y2
@@ -335,19 +334,19 @@ fithMove1()
   Random, s, 200, 400
   	PixelSearch, x1, y1, 0, 0, 520, 365, 0xFF00E7, 10, RGB, Fast
   	PixelSearch, x2, y2, 0, 365, 520, 0, 0xFF00E7, 10, RGB, Fast
-  	if ErrorLevel = 2
-  		msgbox, "There was some sort of problem"
-  	if ErrorLevel = 1
-      msgbox, Colour not found
-  	if ErrorLevel = 0
+  	if (ErrorLevel = 1) {
+      teleport()
+      exitapp
+    }
+  	if (ErrorLevel = 0) {
   		Random x, x2, x1
   		Random y, y1, y2
-  	MouseGetPos, x0, y0
-  	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
-  	sleep sleepClick
-  	Click
-  	sleep sleepMove
-
+  	  MouseGetPos, x0, y0
+  	  RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+  	  sleep sleepClick
+  	  Click
+      sleep sleepMove
+    }
 }
 
 fourthMove()
