@@ -2,7 +2,6 @@
 
 
 normalrun(){
-  Eteleport()
   Ewalk1()
   Ewalk2()
   Ebank()
@@ -24,10 +23,10 @@ normalrun(){
   Ewalk7()
   EfindAltar1()
   EfindAltar2()
+  Eteleport()
 }
 
 necklaceRun(){
-  Eteleport()
   Ewalk1()
   Ewalk2()
   Ebank()
@@ -48,6 +47,7 @@ necklaceRun(){
   Ewalk7()
   EfindAltar1()
   EfindAltar2()
+  Eteleport()
 }
 
 earthRC() {
