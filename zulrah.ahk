@@ -1,8 +1,12 @@
 ;Colour Detection Zulrah Bot
 
 ;Testing
-1::
-mageDef()
+#::
+SetTimer, eat, 20
+return
+
+]::
+reload
 return
 
 
@@ -30,8 +34,35 @@ prayerBook(){
 }
 
 
+eat:
+{
+  PixelSearch, x6, y6, 534, 304, 547, 330, 0x83240F, 10, RGB, Fast
+  if (ErrorLevel = 1) {
+    PixelSearch, x1, y1, 557, 231, 735, 490, 0xFF0000, 1, RGB, Fast
+    Random x, x1, x1 + 15
+    Random y, y1, y1 + 15
+    mousemove(x, y)
+    click()
+  }
+  return
+}
 
-;Teleports
+
+
+;Teleports/Setup
+enterFight(){
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 1, RGB, Fast
+  Random x, x1, x1-10
+  Random y, y1-2 , y1+5
+  mousemove(x, y)
+  click()
+  Random, wait, 2500, 3000
+  Sleep wait
+  Send {1}
+}
+
+
+
 Zteleport() {
   Random x, 697, 719
   Random y, 461, 482
@@ -44,7 +75,7 @@ Zteleport() {
 
 
 
-;Attack Zulrah
+;Fighting
 attack(){
   PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 1, RGB, Fast
   if (ErrorLevel = 1) {
@@ -108,22 +139,162 @@ mageDef() {
 
 
 
-;Phase 1
-Phase1() {
-  PixelSearch, x1, y1, 0, 0, 520, 365, 0x00FAFF, 1, RGB, Fast
+;Spots
+spot1() {
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0xFF00E7, 1, RGB, Fast
   if ( ErrorLevel = 1) {
     msgbox, "The colour wasn't found"
     }
   if (ErrorLevel = 0) {
-    Random x, x1, x1+5
+    Random x, x1, x1-15
     Random y, y1, y1+5
     mousemove(x, y)
     click()
-    Random, sleepWait, 2000, 3000
-    sleep sleepWait
-    attack()
   }
 }
+
+spot2() {
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0x0000FF, 1, RGB, Fast
+  if ( ErrorLevel = 1) {
+    msgbox, "The colour wasn't found"
+    }
+  if (ErrorLevel = 0) {
+    Random x, x1-10, x1
+    Random y, y1, y1+10
+    mousemove(x, y)
+    click()
+  }
+}
+
+spot3() {
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0x0AFF00, 1, RGB, Fast
+  if ( ErrorLevel = 1) {
+    msgbox, "The colour wasn't found"
+    }
+  if (ErrorLevel = 0) {
+    Random x, x1-10, x1
+    Random y, y1, y1+10
+    mousemove(x, y)
+    click()
+  }
+}
+
+spot4() {
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0xFF0000, 1, RGB, Fast
+  if ( ErrorLevel = 1) {
+    msgbox, "The colour wasn't found"
+    }
+  if (ErrorLevel = 0) {
+    Random x, x1-10, x1
+    Random y, y1, y1+10
+    mousemove(x, y)
+    click()
+  }
+}
+
+spot5() {
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0xC46AFF, 1, RGB, Fast
+  if ( ErrorLevel = 1) {
+    msgbox, "The colour wasn't found"
+    }
+  if (ErrorLevel = 0) {
+    Random x, x1-10, x1
+    Random y, y1, y1+10
+    mousemove(x, y)
+    click()
+  }
+}
+
+spot6() {
+  PixelSearch, x1, y1, 0, 0, 520, 365, 0xF1FF00, 1, RGB, Fast
+  if ( ErrorLevel = 1) {
+    msgbox, "The colour wasn't found"
+    }
+  if (ErrorLevel = 0) {
+    Random x, x1-10, x1
+    Random y, y1, y1+10
+    mousemove(x, y)
+    click()
+  }
+
+}
+
+
+
+
+;Phase 1
+;Phase1() {
+    ;spot1()
+    ;mageAttack()
+    ;Random, sleepRun, 2700, 3000
+    ;Sleep sleepRun
+    ;attack()
+    ;Random, sleepKill, 7000, 8000
+    ;Sleep sleepKill
+    ;Write a check for next pattern
+  ;}
+
+;Pattern 3
+;pattern3_1() {
+  ;rangeDef()
+  ;attack()
+  ;Random, sleepKill, 7000, 8000
+  ;Sleep sleepKill
+  ;spot6()
+;  Random, sleepRun, 2700, 3000
+;  Sleep sleepRun
+;}
+
+;pattern3_2() {
+
+
+  ;spot4()
+;}
+
+;pattern3_3() {
+
+
+  ;spot3()
+;}
+
+;pattern3_4() {
+
+
+
+;}
+
+;pattern3_5() {
+
+
+  ;spot4()
+;}
+
+;pattern3_6() {
+
+
+
+;}
+
+;pattern3_7() {
+
+;}
+
+;pattern3_8() {
+
+
+  ;spot3()
+;}
+
+;pattern3_9() {
+
+
+  ;spot1()
+;}
+
+;pattern3_10() {
+
+;}
+
 
 
 

@@ -373,7 +373,7 @@ EfindAltar2(){
   Random, s, 400, 700
 
   Random x, 570, 595
-  Random y, 280, 300
+  Random y, 242, 272
   MouseGetPos, x0, y0
   RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   sleep sleepClick
