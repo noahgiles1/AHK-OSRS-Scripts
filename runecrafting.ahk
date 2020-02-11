@@ -2,39 +2,29 @@
 
 runecraft()
 {
-
-  inputbox, setup1, Repair Pouch, Do you need to setup zoom and compass? Type 1 for yes, 0 for no.
-  inputbox, pouch1, Repair Pouch, Do you need to setup repair pouch? Type 1 for yes, 0 for no.
-  if setup1 = 1
-  	setUp()
-  if pouch1 = 1
-	repairPouch()
-
   loop {
-
-    Random i, 8, 14
-    loop %i% {
-
       teleport()
       moveCam()
       findBankRC()
       emptyInv()
+      withdrawEss()
+      fillPouch()
       withdrawStam()
       Random f, 1, 4
       if (f = 4) {
         withdrawFood()
       }
-      withdrawEss()
-      closeBank()
-      fillPouch()
+
       if (f = 4) {
         eatFood()
       }
       drinkStam()
-      findBank()
       emptyInv()
       withdrawEss()
+      fillPouch1()
+      withdrawEss()
       closeBank()
+      repairPouch()
       firstMove()
       secondMove()
       thirdMove()
@@ -42,6 +32,8 @@ runecraft()
       fithMove()
       clickAltar()
       emptyPouch()
+      clickAltar1()
+      emptyPouch1()
       clickAltar1()
 
       teleport()
@@ -49,12 +41,13 @@ runecraft()
       findBankRC()
       emptyInv()
       withdrawEss()
-      closeBank()
       fillPouch()
-      findBank()
       emptyInv()
       withdrawEss()
+      fillPouch1()
+      withdrawEss()
       closeBank()
+      repairPouch()
       firstMove()
       secondMove()
       thirdMove()
@@ -63,76 +56,9 @@ runecraft()
       clickAltar()
       emptyPouch()
       clickAltar1()
-
-
+      emptyPouch1()
+      clickAltar1()
     }
-    repairPouch()
-  }
-
-}
-
-runecraft1()
-{
-
-  repairPouch()
-  loop {
-
-    Random i, 8, 14
-    loop %i% {
-
-      teleport()
-      moveCam()
-      findBankRC()
-      emptyInv()
-      withdrawStam()
-      Random f, 1, 4
-      if (f = 4) {
-        withdrawFood()
-      }
-      withdrawEss()
-      closeBank()
-      fillPouch()
-      if (f = 4) {
-        eatFood()
-      }
-      drinkStam()
-      findBank()
-      emptyInv()
-      withdrawEss()
-      closeBank()
-      firstMove()
-      secondMove()
-      thirdMove()
-      fourthMove()
-      fithMove()
-      clickAltar()
-      emptyPouch()
-      clickAltar1()
-
-      teleport()
-      moveCam()
-      findBankRC()
-      emptyInv()
-      withdrawEss()
-      closeBank()
-      fillPouch()
-      findBank()
-      emptyInv()
-      withdrawEss()
-      closeBank()
-      firstMove()
-      secondMove()
-      thirdMove()
-      fourthMove()
-      fithMove()
-      clickAltar()
-      emptyPouch()
-      clickAltar1()
-
-      Random j, 1, 2
-    }
-    repairPouch()
-  }
 
 }
 
@@ -158,40 +84,47 @@ repairPouch() {
   Random, sleepMove,  800, 1000
   Random, sleepWait, 7000, 8000
   Random, s, 400, 700
-  Send {F6}
-  Sleep sleepClick
-  Random, sleepClick, 175, 200
-  Random x, 560, 573
-  Random y, 266, 279
-  MouseGetPos, x0, y0
-	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
-  Sleep sleepClick
-  Random, sleepClick, 175, 200
-  Click
-  Sleep sleepClick
-  Random, sleepClick, 175, 200
-  Random x1, 235, 274
-  Random y1, 121, 200
-  MouseGetPos, x0, y0
-	RandomBezier(x0, y0, x1, y1, "T" s A_Space "P2-4")
-  Sleep sleepClick
-  Random, sleepClick, 175, 200
-  Click
-  Sleep sleepWait
-  Send {Space}
-  Sleep sleepMove
-  Random, sleepMove,  800, 1000
-  Send {Space}
-  Sleep sleepMove
-  Random, sleepMove,  800, 1000
-  Send {Space}
-  Sleep sleepMove
-  Random, sleepMove,  800, 1000
-  Send {Space}
-  Sleep sleepMove
-  Random, sleepMove,  800, 1000
-  Send {Esc}
-  Sleep sleepClick
+
+  PixelSearch, x, y, 0, 365, 520, 502, 0x221919, 1, RGB, Fast
+  if (ErrorLevel = 1) {
+    Sleep 100
+      }
+  if (ErrorLevel = 0) {
+    Send {F6}
+    Sleep sleepClick
+    Random, sleepClick, 175, 200
+    Random x, 560, 573
+    Random y, 266, 279
+    MouseGetPos, x0, y0
+    RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+    Sleep sleepClick
+    Random, sleepClick, 175, 200
+    Click
+    Sleep sleepClick
+    Random, sleepClick, 175, 200
+    Random x1, 235, 274
+    Random y1, 121, 200
+    MouseGetPos, x0, y0
+    RandomBezier(x0, y0, x1, y1, "T" s A_Space "P2-4")
+    Sleep sleepClick
+    Random, sleepClick, 175, 200
+    Click
+    Sleep sleepWait
+    Send {Space}
+    Sleep sleepMove
+    Random, sleepMove,  800, 1000
+    Send {Space}
+    Sleep sleepMove
+    Random, sleepMove,  800, 1000
+    Send {Space}
+    Sleep sleepMove
+    Random, sleepMove,  800, 1000
+    Send {Space}
+    Sleep sleepMove
+    Random, sleepMove,  800, 1000
+    Send {Esc}
+    Sleep sleepClick
+  }
 }
 
 emptyPouch()
@@ -199,7 +132,7 @@ emptyPouch()
   Random, sleepClick, 130, 170
   Random, s, 400, 700
   Random x, 573, 592
-  Random y, 285, 297
+  Random y, 247, 268
   MouseGetPos, x0, y0
   RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
@@ -216,6 +149,26 @@ emptyPouch()
   Click
   Sleep sleepClick
   Random, sleepClick, 130, 170
+  Send {Shift up}
+  Sleep sleepClick
+}
+
+emptyPouch1()
+{
+  Random, sleepClick, 130, 170
+  Random, s, 400, 700
+  Random x, 614, 634
+  Random y, 247, 268
+  MouseGetPos, x0, y0
+  RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
+  Send {Shift down}
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
+  Click
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
   MouseMove, 0, 35, 0, R
   Sleep sleepClick
   Random, sleepClick, 130, 170
@@ -224,8 +177,6 @@ emptyPouch()
   Random, sleepClick, 130, 170
   Send {Shift up}
   Sleep sleepClick
-
-
 }
 
 
@@ -310,7 +261,7 @@ fithMove()
       clickAltar()
       emptyPouch()
       clickAltar1()
-      runecraft1()
+      runecraft()
 
     }
   	if ErrorLevel = 0
@@ -431,13 +382,19 @@ drinkStam()
   Random, sleepClick, 130, 170
   Random, sleepMove, 200, 300
   Random, s, 400, 700
-  Random, x, 569, 592
+  Random, x, 658, 674
 	Random, y, 248, 269
 	MouseGetPos, x0, y0
 	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
   Random, sleepClick, 130, 170
+  Send {Shift down}
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
   Click
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
+  Send {Shift up}
   Sleep sleepClick
 }
 
@@ -447,13 +404,19 @@ eatFood()
   Random, sleepClick, 130, 170
   Random, sleepMove, 200, 300
   Random, s, 400, 700
-  Random, x, 613, 638
+  Random, x, 695, 719
 	Random, y, 248, 269
 	MouseGetPos, x0, y0
 	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
   Random, sleepClick, 130, 170
+  Send {Shift down}
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
   Click
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
+  Send {Shift up}
   Sleep sleepClick
 }
 
@@ -465,11 +428,14 @@ fillPouch()
   Random, sleepMove, 200, 300
   Random, s, 400, 700
   Random x, 573, 592
-  Random y, 285, 297
+  Random y, 245, 270
   MouseGetPos, x0, y0
 	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
   Sleep sleepClick
   Random, sleepClick, 130, 170
+  Send {Shift down}
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
   Click
   Sleep sleepClick
   Random, sleepClick, 130, 170
@@ -478,9 +444,35 @@ fillPouch()
   Click
   Sleep sleepClick
   Random, sleepClick, 130, 170
+  Send {Shift up}
+  Sleep sleepMove
+}
+
+fillPouch1()
+{
+
+  Random, sleepBank, 500, 1000
+  Random, sleepClick, 130, 170
+  Random, sleepMove, 200, 300
+  Random, s, 400, 700
+  Random x, 613, 634
+  Random y, 245, 270
+  MouseGetPos, x0, y0
+	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
+  Send {Shift down}
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
+  Click
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
   MouseMove, 0, 35, 0, R
   Sleep sleepClick
   Click
+  Sleep sleepClick
+  Random, sleepClick, 130, 170
+  Send {Shift up}
   Sleep sleepMove
 }
 
