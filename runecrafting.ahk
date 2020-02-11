@@ -88,10 +88,7 @@ repairPouch() {
   Random x, 573, 592
   Random y, 247, 268
 
-  PixelSearch, x, y, 573, 247, 592, 268, 0x221919, 5, RGB, Fast
-  if (ErrorLevel = 1) {
-    Sleep 100
-      }
+  PixelSearch, x, y, 573, 247, 592, 268, 0x221919, 1, RGB, Fast
   if (ErrorLevel = 0) {
     Send {F6}
     Sleep sleepClick
