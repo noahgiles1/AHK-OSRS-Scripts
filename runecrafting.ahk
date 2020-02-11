@@ -34,7 +34,7 @@ runecraft()
       emptyPouch()
       clickAltar1()
       emptyPouch1()
-      clickAltar1()
+      clickAltar2()
 
       teleport()
       moveCam()
@@ -57,7 +57,7 @@ runecraft()
       emptyPouch()
       clickAltar1()
       emptyPouch1()
-      clickAltar1()
+      clickAltar2()
     }
 
 }
@@ -156,7 +156,7 @@ emptyPouch()
 emptyPouch1()
 {
   Random, sleepClick, 130, 170
-  Random, s, 400, 700
+  Random, s, 300, 500
   Random x, 614, 634
   Random y, 247, 268
   MouseGetPos, x0, y0
@@ -235,13 +235,43 @@ clickAltar1()
     Random, sleepClick, 130, 170
   	Click
     sleep sleepClick
+      Random x, 600, 650
+      Random y, 260, 285
+      Random, s, 400, 700
+      MouseGetPos, x0, y0
+    	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+    	sleep sleepOkay
+}
+
+clickAltar2()
+{
+
+
+  Random, sleepBank, 2450, 2600
+  Random, sleepClick, 130, 170
+  Random, sleepOkay, 2600, 2900
+  Random, sleepMove, 6250, 6500
+  Random, s, 400, 700
+  	PixelSearch, x1, y1, 0, 0, 520, 365, 0xF1FF00, 10, RGB, Fast
+  	PixelSearch, x2, y2, 0, 365, 520, 0, 0xF1FF00, 10, RGB, Fast
+  	if (ErrorLevel = 1) {
+      sleep 500
+    }
+  	if ErrorLevel = 0
+  		Random x, x2, x1
+  		Random y, y1, y2
+  	MouseGetPos, x0, y0
+  	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
+  	sleep sleepClick
+    Random, sleepClick, 130, 170
+  	Click
+    sleep sleepClick
       Random x, 700, 750
       Random y, 260, 285
       Random, s, 400, 700
       MouseGetPos, x0, y0
     	RandomBezier(x0, y0, x, y, "T" s A_Space "P2-4")
     	sleep sleepOkay
-
 }
 
 
