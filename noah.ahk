@@ -28,6 +28,12 @@ Gui, Add, Button, x260 y170 w150 h75 gEarth, Mud RuneCrafting
 Gui, Add, Button, x425 y185 w20 h20 gEarthInfo, ?
 Gui, Add, Button, x425 y210 w20 h20 gEarthImg, i
 
+Gui, Add, Button, x260 y270 w150 h75 gDart, Dart Fletching
+Gui, Add, Button, x425 y285 w20 h20 gDartInfo, ?
+Gui, Add, Button, x425 y310 w20 h20 gDartImg, i
+
+
+
 
 Gui, Add, Button, x175 y470 w150 h35 gClose, Exit
 
@@ -41,6 +47,7 @@ return
 #Include seersAgility.ahk
 #Include stringBows.ahk
 #Include earthRC.ahk
+#Include darts.ahk
 
 
 ;Labels
@@ -49,6 +56,24 @@ Sumbit_All:
 	Tooltip, %DDL%
 return
 
+Dart:
+If WinExist("OpenOSRS")
+	WinActivate, OpenOSRS
+else if WinExist("RuneLite")
+	WinActivate,  RuneLite
+else {
+	msgbox, RuneLite or OpenOSRS are not open.
+	sleep, 500
+	exitapp
+}
+	makeDarts()
+	return
+
+DartInfo:
+Return
+
+DartIMG:
+return
 
 Smithing:
 If WinExist("OpenOSRS")
