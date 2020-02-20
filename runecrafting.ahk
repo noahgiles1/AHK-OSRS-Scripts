@@ -2,6 +2,21 @@
 
 runecraft()
 {
+
+  ;On-screen display (OSD)
+  CustomColor = BBAB8B ; Can be any RGB color.
+  Gui 3:+LastFound +AlwaysOnTop -Caption +ToolWindow ; +ToolWindow avoids a taskbar button and an alt-tab menu item.
+  Gui, 3:Color, %CustomColor%
+  Gui, 3:Font, s9
+  Gui, 3:Add, Text, cBlue, Noah's Runecrafter  -  Astrals
+
+
+
+  WinGetPos X, Y, Width, Height, RuneLite
+  x1 := X + 11
+  y1 := Y + 480
+  Gui, 3:Show, x%x1% y%y1% w505 h25, NoActivate, RuneLite ; NoActivate avoids deactivating the currently active window.
+  sleep, 1000
   loop {
       teleport()
       moveCam()

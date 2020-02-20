@@ -1,8 +1,33 @@
 #SingleInstance, Force
 
 
+
+
 herblore()
 {
+
+  ;On-screen display (OSD)
+  CustomColor = BBAB8B ; Can be any RGB color.
+  Gui 2:+LastFound +AlwaysOnTop -Caption +ToolWindow ; +ToolWindow avoids a taskbar button and an alt-tab menu item.
+  Gui, 2:Color, %CustomColor%
+  Gui, 2:Font, s18
+  Gui, 2:Add, Text, cBlue, Noah's Unf Potions
+
+  Gui, 2:Add, Picture,x400 y30 w50 h-1 ,unf.png
+  Gui, 2:Add, Picture,x280 y40 w70 h-1 ,herb.png
+
+  Gui, 2:Font, s10
+  Gui, 2:Add, Text, x22 y60 cBlue, Chosen herb:    Unknown
+  Gui, 2:Font, s10
+  Gui, 2:Add, Text, x22 y85 cBlue, Amount Made:    Unknown
+
+
+  WinGetPos X, Y, Width, Height, RuneLite
+  x1 := X + 11
+  y1 := Y + 372
+  Gui, 2:Show, x%x1% y%y1% w505 h128, NoActivate, RuneLite ; NoActivate avoids deactivating the currently active window.
+
+
 inputbox, pots, Potions, How many potions do you want to create?
 value := pots / 14
 j := Floor(value) + 1
