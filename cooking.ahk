@@ -2,11 +2,13 @@
 
 
 cook(){
+  loop {
   CFindBank()
   CemptyInv()
   CWithdrawFood()
   CUseFood()
   CFindFire()
+}
 }
 
 click() {
