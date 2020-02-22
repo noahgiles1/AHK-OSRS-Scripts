@@ -16,7 +16,11 @@ runecraft()
   x1 := X + 11
   y1 := Y + 480
   Gui, 3:Show, x%x1% y%y1% w505 h25, NoActivate, RuneLite ; NoActivate avoids deactivating the currently active window.
-  sleep, 1000
+  If WinExist("OpenOSRS")
+  	WinActivate, OpenOSRS
+  else if WinExist("RuneLite")
+  	WinActivate,  RuneLite
+  sleep, 5000
   loop {
       teleport()
       moveCam()

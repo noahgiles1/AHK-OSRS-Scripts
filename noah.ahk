@@ -32,6 +32,10 @@ Gui, Add, Button, x260 y270 w150 h75 gDart, Dart Fletching
 Gui, Add, Button, x425 y285 w20 h20 gDartInfo, ?
 Gui, Add, Button, x425 y310 w20 h20 gDartImg, i
 
+Gui, Add, Button, x260 y370 w150 h75 gCook, Burthope Cooking
+Gui, Add, Button, x425 y385 w20 h20 gCookInfo, ?
+Gui, Add, Button, x425 y410 w20 h20 gCookImg, i
+
 
 
 
@@ -48,6 +52,7 @@ return
 #Include stringBows.ahk
 #Include earthRC.ahk
 #Include darts.ahk
+#Include cooking.ahk
 
 
 ;Labels
@@ -73,6 +78,25 @@ DartInfo:
 Return
 
 DartIMG:
+return
+
+Cook:
+If WinExist("OpenOSRS")
+	WinActivate, OpenOSRS
+else if WinExist("RuneLite")
+	WinActivate,  RuneLite
+else {
+	msgbox, RuneLite or OpenOSRS are not open.
+	sleep, 500
+	exitapp
+}
+	cook()
+	return
+
+CookInfo:
+Return
+
+CookIMG:
 return
 
 Smithing:

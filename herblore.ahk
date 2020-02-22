@@ -26,7 +26,11 @@ herblore()
   x1 := X + 11
   y1 := Y + 372
   Gui, 2:Show, x%x1% y%y1% w505 h128, NoActivate, RuneLite ; NoActivate avoids deactivating the currently active window.
-
+  If WinExist("OpenOSRS")
+    WinActivate, OpenOSRS
+  else if WinExist("RuneLite")
+    WinActivate,  RuneLite
+  sleep, 5000
 
 inputbox, pots, Potions, How many potions do you want to create?
 value := pots / 14
