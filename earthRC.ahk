@@ -51,6 +51,10 @@ necklaceRun(){
 }
 
 earthRC() {
+  inputbox, j, Script End, How long do you want the script to run (minutes)?
+	j := j * 1000 * 60
+	SetTimer, end, %j%
+  
   inputbox, runs, Runs, How many charges on amulet do you have?
   count := 0
   loop, %runs% {

@@ -2,6 +2,10 @@
 
 
 cook(){
+  inputbox, j, Script End, How long do you want the script to run (minutes)?
+	j := j * 1000 * 60
+	SetTimer, end, %j%
+  
   loop {
   CFindBank()
   CemptyInv()

@@ -61,6 +61,10 @@ Sumbit_All:
 	Tooltip, %DDL%
 return
 
+end:
+reload
+return
+
 Dart:
 If WinExist("OpenOSRS")
 	WinActivate, OpenOSRS
@@ -90,6 +94,7 @@ else {
 	sleep, 500
 	exitapp
 }
+
 	cook()
 	return
 
